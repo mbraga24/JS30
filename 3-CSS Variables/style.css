@@ -1,27 +1,35 @@
 :root {
   --base: #ffc600;
-  --spacing: 10px;
-  --blur: 10px;
+  --scale: 1;
+  /* --width: calc(var(--size) + 15px); */
+  --blur: 5px;
   background: url(https://i.pinimg.com/originals/43/c9/65/43c9653e3a717d4a80a0551ebec6c978.png) center;
   background-size: cover;
 }
 
 img {
-  padding: var(--spacing);
-  filter: blur(var(--blur));
   height: 80vh;
   width: 80vh;
 }
 
 .energyBall {
-  height: 100px;
-  width: 100px;
   background: var(--base);
-  border-radius: 100px;
-  top: 360px;
-  left: 540px;
+  border-radius: 100%;
+  top: 390px;
+  left: 580px;
   position: absolute;
   z-index: 1;
+  filter: blur(var(--blur));
+  transform: scale(var(--scale));
+
+    --duration: 2000ms;
+
+  transition: transform var(--duration) ease-in-out;
+  will-change: transform;
+  width: 15vmin;
+  height: 15vmin;
+
+  transition-duration: 3000;
 }
 
 /* .hl {
