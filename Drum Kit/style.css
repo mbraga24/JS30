@@ -1,7 +1,7 @@
 
 html {
   font-size: 10px;
-  background: url(http://i.imgur.com/b9r5sEL.jpg) bottom center;
+  background: url(https://i0.wp.com/www.recordingrevolution.com/wp-content/uploads/2017/03/TRR60-The-Glyn-Johns-Drum-Recording-Method.jpg?fit=1024%2C762&ssl=1) center;
   background-size: cover;
 }
 
@@ -20,17 +20,18 @@ body,html {
 }
 
 .key {
-  border: .4rem solid black;
-  border-radius: .5rem;
+  border: .3rem solid black;
+  border-radius: 25rem;
   margin: 1rem;
   font-size: 1.5rem;
   padding: 1rem .5rem;
   transition: all .07s ease;
-  width: 10rem;
+  width: 12rem;
+  height: 10rem;
   text-align: center;
-  color: white;
-  background: rgba(0,0,0,0.4);
-  text-shadow: 0 0 .5rem black;
+  color: black;
+  background: rgba(255,255,255,0.4);
+  text-shadow: 0 0 0.1rem black;
 }
 
 .playing {
@@ -42,11 +43,12 @@ body,html {
 kbd {
   display: block;
   font-size: 4rem;
+  margin-top: 10px;
 }
 
 .sound {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   text-transform: uppercase;
-  letter-spacing: .1rem;
-  color: #ffc600;
+  letter-spacing: .3rem;
+  color: #0800ff;
 }
