@@ -1,9 +1,9 @@
 html {
-     background: url(https://cdn.wallpapershdin.com/wallpapers/blue-minimalistic-grain-windows-8-gradient-colors-plain-noise-2048x1152.jpg);
-     background-size: cover;
-     font-family: 'Times New Roman';
-     text-align: center;
-     font-size: 10px;
+ background: url(https://cdn.wallpapershdin.com/wallpapers/blue-minimalistic-grain-windows-8-gradient-colors-plain-noise-2048x1152.jpg);
+ background-size: cover;
+ font-family: 'Times New Roman';
+ text-align: center;
+ font-size: 10px;
 }
 body {
  margin: 0;
@@ -41,22 +41,18 @@ body {
  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
  box-shadow: 3px 2px 5px #000000;
 }
-
 .hour-hand {
  height: 6px;
  width: 30%;
 }
-
 .minute-hand {
  height: 4px;
  width: 40%;
 }
-
 .second-hand {
  height: 2px;
  width: 50%;
 }
-
 .bolt {
  height: 12px;
  width: 12px;
@@ -68,34 +64,29 @@ body {
  border-radius: 10px;
  box-shadow: 1px 1px 1px #000000;
 }
-
 .numerals {
   position: relative;
 }
-
 #twelve {
-  bottom: 0;
   top: 0;
+  bottom: 0;
   font-size: 80px;
 }
-
 #three {
-  font-size: 80px;
-  width: 100px;
   top: 60px;
   left: 320px;
+  width: 100px;
+  font-size: 80px;
 }
-
 #nine {
-  font-size: 100px;
   top: -45px;
   right: 10px;
-  width: 50px;
   left: 0px;
+  width: 50px;
+  font-size: 100px;
 }
-
 #six {
   top: 50px;
-  font-size: 60px;
   left: -5px;
+  font-size: 60px;
 }
