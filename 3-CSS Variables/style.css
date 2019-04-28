@@ -1,8 +1,8 @@
 :root {
   --base: #ffc600;
   --scale: 1;
-  /* --width: calc(var(--size) + 15px); */
   --blur: 5px;
+  --duration: 3000ms;
   background: url(https://i.pinimg.com/originals/43/c9/65/43c9653e3a717d4a80a0551ebec6c978.png) center;
   background-size: cover;
 }
@@ -15,26 +15,21 @@ img {
 .energyBall {
   background: var(--base);
   border-radius: 100%;
-  top: 390px;
-  left: 580px;
+  top: 440px;
+  left: 560px;
   position: absolute;
   z-index: 1;
   filter: blur(var(--blur));
   transform: scale(var(--scale));
-
-    --duration: 2000ms;
-
   transition: transform var(--duration) ease-in-out;
-  will-change: transform;
-  width: 15vmin;
-  height: 15vmin;
-
-  transition-duration: 3000;
+  /* will-change: transform; */
+  width: 10vmin;
+  height: 10vmin;
 }
 
-/* .hl {
+.hl {
   color: var(--base);
-} */
+}
 
 body {
   text-align: center;
