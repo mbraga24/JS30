@@ -2,21 +2,34 @@
   --base: #ffc600;
   --spacing: 10px;
   --blur: 10px;
+  background: url(https://i.pinimg.com/originals/43/c9/65/43c9653e3a717d4a80a0551ebec6c978.png) center;
+  background-size: cover;
 }
 
 img {
   padding: var(--spacing);
-  background: var(--base);
   filter: blur(var(--blur));
+  height: 80vh;
+  width: 80vh;
 }
 
-.hl {
-  color: var(--base);
+.energyBall {
+  height: 100px;
+  width: 100px;
+  background: var(--base);
+  border-radius: 100px;
+  top: 360px;
+  left: 540px;
+  position: absolute;
+  z-index: 1;
 }
+
+/* .hl {
+  color: var(--base);
+} */
 
 body {
   text-align: center;
-  background: #193549;
   color: white;
   font-family: 'helvetica neue', sans-serif;
   font-weight: 100;
