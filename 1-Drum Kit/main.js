@@ -13,6 +13,6 @@ function removeTransition(e) {
   this.classList.remove('playing');
 }
 
+window.addEventListener('keydown', playSound);
 const keys = document.querySelectorAll('.key');
 keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-window.addEventListener('keydown', playSound);

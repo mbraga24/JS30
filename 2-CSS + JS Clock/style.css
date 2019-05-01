@@ -7,7 +7,6 @@ html {
 }
 body {
  margin: 0;
- font-size: 2rem;
  display: flex;
  flex: 1;
  min-height: 100vh;
@@ -25,15 +24,13 @@ body {
 }
 .clock-face {
  position: relative;
- width: 100%;
- height: 100%;
  transform: translateY(-3px); /* account for the height of the clock hands */
 }
 .hand {
  border-radius: 5px;
  background: black;
  position: absolute;
- top: 50%;
+ top: 56%;
  right: 50%;
  transform-origin: 100%;
  transform: rotate(90deg);
@@ -51,7 +48,7 @@ body {
 }
 .second-hand {
  height: 2px;
- width: 50%;
+ width: 45%;
 }
 .bolt {
  height: 12px;
@@ -59,7 +56,7 @@ body {
  border: 2px solid black;
  background: black;
  position: absolute;
- top: 49%;
+ top: 54%;
  right: 48.5%;
  border-radius: 10px;
  box-shadow: 1px 1px 1px #000000;
