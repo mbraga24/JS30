@@ -25,9 +25,6 @@ function numberWithCommas(x) {
 
 function displayMatches() {
 
-  if (this.value === "") {
-    let throwAwayNode = parentNode.removeChild(suggestions)
-  }
   const matchArray = findMatches(this.value, cities);
   const html = matchArray.map(place => {
   const regex = new RegExp(this.value, 'gi');
@@ -45,7 +42,6 @@ function displayMatches() {
 
 }
 
-const parentNode = document.querySelector('.search-form');
 const searchInput = document.querySelector('.search');
 const suggestions = document.querySelector('.suggestions');
 
