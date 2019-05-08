@@ -4,27 +4,23 @@ const cities = [];
 
 // USING FETCH
 fetch(endpoint)
-  .then((blob) => blob.json())
-  .then((data) => cities.push(...data)) // Spread into the push() method
+  .then((promise) => promise.json())
+  .then((jsonResponse) => cities.push(...jsonResponse)) // Spread into the push() method
 
+  function numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+// Will filter if the city or state matches what was searched.
 function findMatches(wordToMatch, cities) {
-
   return cities.filter(place => {
 
-    // This block of code will filter if the city or state matches what
-    // was searched.
-    const regex = new RegExp(wordToMatch, 'gi'); // g: global - i: insensitive
+    const regex = new RegExp(wordToMatch, 'gi');    // g: global - i: insensitive
     return place.city.match(regex) ||  place.state.match(regex)
-
   });
 }
 
-function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
 function displayMatches() {
-
   const matchArray = findMatches(this.value, cities);
   const html = matchArray.map(place => {
   const regex = new RegExp(this.value, 'gi');
