@@ -5,34 +5,45 @@ canvas.height = window.innerHeight;
 context.strokeStyle = '#BADA55';
 context.lineJoin = 'round';
 context.lineCap = 'round';
+context.lineWidth = 100;
 
 let isDrawing = false;
 let lastX = 0;
 let lastY = 0;
+let hue = 0;
 
 function draw(e) {
+  console.log(e)
   if (!isDrawing) return; // Will stop the function from running when they are not moused down.
+  context.strokeStyle = `hsl(${hue}, 100%, 50%)`
   context.beginPath();
-  // START FROM
+  // START FROM.
   context.moveTo(lastX, lastY)
-  // GO TO
+  // GO TO.
   context.lineTo(e.offsetX, e.offsetY)
-  // Draws on the page
+  // Draws on the page.
   context.stroke();
 
-  // Update the last X and las Y
-  [lastX, lastY] = [e.offsetX, e.offsetY]   // Destructuring Array Assignment
-  // lastX = e.offsetX;
-  // lastY = e.offsetY;
-
-  console.log(lastX)
-  console.log(lastY)
+  // Update the last X and last Y position.
+  lastX = e.offsetX;
+  lastY = e.offsetY;
+  hue++;
+  if (hue >= 360) {
+    hue = 0;
+  }
+  console.log(hue)
 }
+canvas.addEventListener('mousedown', (e) => {
+  isDrawing = true
+  lastX = e.offsetX;
+  lastY = e.offsetY;
+  // console.log(lastX)
+  // console.log(lastY)
+});
 
 canvas.addEventListener('mousemove', draw);
-canvas.addEventListener('mousedown', () => isDrawing = true);
 canvas.addEventListener('mouseup', () => isDrawing = false);
-// canvas.addEventListener('mouseout', () => isDrawing = false);
+canvas.addEventListener('mouseout', () => isDrawing = false);
 
 /*
 Canvas API
