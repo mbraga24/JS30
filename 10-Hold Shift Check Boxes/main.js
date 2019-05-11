@@ -10,7 +10,12 @@ function handleCheck(event) {
 
     // Loop over every single checkbox.
     checkboxes.forEach(checkbox => {
-      
+      if (inBetween) {
+          checkbox.checked = true;
+      }
+      if (checkbox === lastChecked) {
+        inBetween = !inBetween;
+      }
     })
 
   }
