@@ -2,10 +2,10 @@ const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb
 
 const cities = [];
 
-// USING FETCH
+// Fetch API
 fetch(endpoint)
   .then((promise) => promise.json())
-  .then((jsonResponse) => cities.push(...jsonResponse)) // Spread into the push() method
+  .then((jsonResponse) => cities.push(...jsonResponse)) // Spread operator to assign all values to its own indexes.
 
   function numberWithCommas(x) {
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -20,22 +20,30 @@ function findMatches(wordToMatch, cities) {
   });
 }
 
+// Will display matches if a value is typed in the input element. 
+// When no value is given or all values is deleted the default <li>'s
+// are reasigned.
 function displayMatches() {
-  const matchArray = findMatches(this.value, cities);
-  const html = matchArray.map(place => {
-  const regex = new RegExp(this.value, 'gi');
-  const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
-  const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
+  if (this.value) {
+    let matchArray = findMatch(this.value, cities)
+    let html = matchArray.map(place => {
+      const regex = new RegExp(this.value, 'gi');
+      const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
+      const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`)
+      return `
+        <li>
+          <span class="name">${cityName}, ${stateName}</span>
+          <span class="population">${place.population}</span>
+        </li>
+      `;
+    }).join("");
 
-  return `
-    <li>
-      <span class='name'>${cityName}, ${stateName}</span>
-      <span class='population'>${numberWithCommas(place.population)}</span>
-    </li>
-    `;
-  }).join('');
-  suggestions.innerHTML = html;
+    suggestions.innerHTML = html;
 
+  } else {
+    let html = `<li>Filter for a city</li> <li>or a state</li>`;
+    suggestions.innerHTML = html;
+  }
 }
 
 const searchInput = document.querySelector('.search');
