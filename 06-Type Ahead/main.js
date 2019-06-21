@@ -14,7 +14,6 @@ fetch(endpoint)
 // Will filter if the city or state matches what was searched.
 function findMatches(wordToMatch, cities) {
   return cities.filter(place => {
-
     const regex = new RegExp(wordToMatch, 'gi');    // g: global - i: insensitive
     return place.city.match(regex) ||  place.state.match(regex)
   });
@@ -25,8 +24,8 @@ function findMatches(wordToMatch, cities) {
 // are reasigned.
 function displayMatches() {
   if (this.value) {
-    let matchArray = findMatch(this.value, cities)
-    let html = matchArray.map(place => {
+    const matchArray = findMatches(this.value, cities)
+    const html = matchArray.map(place => {
       const regex = new RegExp(this.value, 'gi');
       const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
       const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`)
@@ -37,11 +36,11 @@ function displayMatches() {
         </li>
       `;
     }).join("");
-
     suggestions.innerHTML = html;
-
   } else {
-    let html = `<li>Filter for a city</li> <li>or a state</li>`;
+    const html = `
+      <li>Filter for a city</li> <li>or a state</li>
+    `;
     suggestions.innerHTML = html;
   }
 }
