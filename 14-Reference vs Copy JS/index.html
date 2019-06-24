@@ -62,13 +62,24 @@
     // or use the new ES6 Spread
     group4 = [...theoffice]
 
-    group[3] = " Andy Bernard";
+    group4[3] = " Andy Bernard";
+
+    console.log("ES6 Array Copy")
+    console.log("")
 
     console.log("theoffice: " + theoffice)
     console.log("group4: " + group4 + " <== A successful copy! Only group4 is changed") 
 
+    console.log("***********")
 
-    // now when we update it, the original one isn't changed
+    group5 = Array.from(theoffice)
+    group5[3] = " Oscar Martinez"
+
+    console.log("theoffice: " + theoffice)
+    console.log("group5: " + group5 + " <== A successful copy! Only group5 is changed") 
+  
+
+
     // The same thing goes for objects, let's say we have a person object
     // with Objects
     const person = {
@@ -76,6 +87,9 @@
       age: 80
     };
     // and think we make a copy:
+
+
+
     // how do we take a copy instead?
     // We will hopefully soon see the object ...spread
     // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
