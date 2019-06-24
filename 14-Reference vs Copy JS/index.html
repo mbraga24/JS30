@@ -50,8 +50,15 @@
 
     console.log("players: " + players)
     console.log("team2: " + team2 + " <== A successful copy! Only team2 is changed") 
+    console.clear()
 
     // or create a new array and concat the old one in
+    team3 = [].concat(players)
+    team3[3] = "Angela"
+
+    console.log("players: " + players)
+    console.log("team3: " + team3 + " <== A successful copy! Only team3 is changed") 
+
 
     // or use the new ES6 Spread
     // now when we update it, the original one isn't changed
