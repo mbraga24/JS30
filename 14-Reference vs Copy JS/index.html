@@ -25,10 +25,16 @@
     console.clear()
 
     // Let's say we have an array
-    const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
+    const players = ['Toby', 'Jim', 'Stanley', 'Phillis'];
     // and we want to make a copy of it.
-
+    const team = players;
+    console.log("players: " + players)
+    console.log("team: " + team)
     // You might think we can just do something like this:
+    team[3] = "Michael Scott";
+    console.log("______")
+    console.log("players: " + players + " <== The original array was changes because team is a reference to the original array.")
+    console.log("team: " + team)
 
     // however what happens when we update that array?
 
