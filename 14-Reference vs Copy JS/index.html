@@ -77,20 +77,50 @@
 
     console.log("theoffice: " + theoffice)
     console.log("group5: " + group5 + " <== A successful copy! Only group5 is changed") 
-  
-
-
+    console.clear()
     // The same thing goes for objects, let's say we have a person object
     // with Objects
-    const person = {
-      name: 'Wes Bos',
-      age: 80
+    const employee = {
+      id: 3,
+      name: 'Pam Beesley',
+      age: 24,
+      passion: "Graphic Design",
+      spouse: "Roy Anderson",
+      jobTitle: "Secretary at Dunder Mifflin Inc."
     };
     // and think we make a copy:
+    console.log("===> employee object before update: ")
+    console.log(employee)
+    console.log("")
 
-
+    const pam = employee;
+    pam.age = 28;
+  
+    console.log("===> employee object after update: ")
+    console.log(employee)
+    console.log("employee object was changed !")
+    console.log("")
+    console.log("===> pam object after update: ")
+    console.log(pam)
+    console.clear()
 
     // how do we take a copy instead?
+    console.log("===> employee object before update: ")
+    console.log(employee)
+    console.log("")
+
+    const pam2 = Object.assign({}, employee, { age: 32, spouse: "Jim Halpert"});
+
+    console.log("===> employee object after update: ")
+    console.log(employee)
+    console.log("")
+    console.log("A successful copy of the object 'employee':")
+    console.log(pam2)
+
+    const michael = Object.assign({}, employee, { id: 1, name: "Michael Scott", age: 42, passion: "Make corny jokes and make people feel uncomfortable.", spouse: "TBD", jobTitle: "Regional Manager"})
+    console.log("A successful copy of the object 'employee':")
+    console.log(michael)
+    
     // We will hopefully soon see the object ...spread
     // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
   </script>
