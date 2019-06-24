@@ -25,42 +25,49 @@
     console.clear()
 
     // Let's say we have an array
-    const players = ['Toby', 'Jim', 'Stanley', 'Phillis'];
+    const theoffice = ['Toby Flederson', ' Jim Halpert', ' Stanley Hudson', ' Phillis Vance'];
     // and we want to make a copy of it.
-    const team = players;
-    console.log("players: " + players)
-    console.log("team: " + team)
+    const group = theoffice;
+    console.log("theoffice: " + theoffice)
+    console.log("group: " + group)
     // You might think we can just do something like this:
-    team[3] = "Michael Scott";
+    group[3] = " Michael Scott";
 
     // however what happens when we update that array?
     console.log("************")
-    console.log("players: " + players + " <== The original array was changes because team is a reference to the original array.")
-    console.log("team: " + team)
+    console.log("theoffice: " + theoffice + " <== The original array was changes because group is a reference to the original array.")
+    console.log("group: " + group)
     console.clear()
     // Why? It's because that is an array reference, not an array copy. They both point to the same array.
 
     // So, how do we fix this? We take a copy instead!
 
     // one way
-    const team2 = players.slice();
+    const group2 = theoffice.slice();
 
     // Let's update!
-    team2[3] = "Dwight"
+    group2[3] = " Dwight Schrute"
 
-    console.log("players: " + players)
-    console.log("team2: " + team2 + " <== A successful copy! Only team2 is changed") 
+    console.log("theoffice: " + theoffice)
+    console.log("group2: " + group2 + " <== A successful copy! Only group2 is changed") 
     console.clear()
 
     // or create a new array and concat the old one in
-    team3 = [].concat(players)
-    team3[3] = "Angela"
+    group3 = [].concat(theoffice)
+    group3[3] = " Angela Martin"
 
-    console.log("players: " + players)
-    console.log("team3: " + team3 + " <== A successful copy! Only team3 is changed") 
-
-
+    console.log("theoffice: " + theoffice)
+    console.log("group3: " + group3 + " <== A successful copy! Only group3 is changed") 
+    console.clear()
     // or use the new ES6 Spread
+    group4 = [...theoffice]
+
+    group[3] = " Andy Bernard";
+
+    console.log("theoffice: " + theoffice)
+    console.log("group4: " + group4 + " <== A successful copy! Only group4 is changed") 
+
+
     // now when we update it, the original one isn't changed
     // The same thing goes for objects, let's say we have a person object
     // with Objects
