@@ -54,13 +54,13 @@ h2 {
   flex: 1;
   cursor: pointer;
 }
-
 .plates input {
   display: none;
 }
 
 .plates input + label:before {
   content: '⬜️';
+  :smile_cat:
   margin-right: 10px;
 }
 

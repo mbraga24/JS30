@@ -12,6 +12,7 @@ function addItem(e) {
   }
   items.push(item);
   populateList(items, itemsList)
+  localStorage.setItem("items", JSON.stringify(items))
   this.reset();
 }
 
@@ -21,7 +22,7 @@ function populateList(plates = [], plateList) {
     return `
       <li>
         <input type="checkbox" data-index=${i} id="item${i}" ${plate.done ? "checked" : ""} />
-        <label for="">${plate.text}</label>
+        <label for="item${i}">${plate.text}</label>
       </li>
     `;
   }).join("");
