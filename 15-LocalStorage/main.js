@@ -42,10 +42,12 @@ function toggleDone(e) {
 
 function clearList(e) {
   e.preventDefault();
-  localStorage.clear();
   while(itemsList.firstChild) {
     itemsList.removeChild(itemsList.firstChild);
+    items.shift()
   }
+  localStorage.clear();
+  populateList(items, itemsList);
 }
 
 addItems.addEventListener('submit', addItem);
