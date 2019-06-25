@@ -1,10 +1,12 @@
 const addItems = document.querySelector('.add-items');
+const deleteItems = document.querySelector('.delete-items')
 const itemsList = document.querySelector('.plates');
 const items = JSON.parse(localStorage.getItem("items")) || [];
 
+
 function addItem(e) {
   e.preventDefault();
-  // this: is the <form> element and .querySelector will look for an item with the 'name' attribute.
+  // this: is the <form> element and .querySelector() will look for an item with the 'name' attribute.
   const text = this.querySelector("[name=item]");
   const item = {
     text: text.value,
@@ -38,7 +40,17 @@ function toggleDone(e) {
   populateList(items, itemsList);
 }
 
+function clearList(e) {
+  e.preventDefault();
+  localStorage.clear();
+  while(itemsList.firstChild) {
+    itemsList.removeChild(itemsList.firstChild);
+  }
+}
+
 addItems.addEventListener('submit', addItem);
+deleteItems.addEventListener('submit', clearList);
 itemsList.addEventListener('click', toggleDone);
+
 
 populateList(items, itemsList)
