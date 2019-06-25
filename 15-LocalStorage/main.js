@@ -44,7 +44,7 @@ function clearList(e) {
   e.preventDefault();
   while(itemsList.firstChild) {
     itemsList.removeChild(itemsList.firstChild);
-    items.shift()
+    items.shift();
   }
   localStorage.clear();
   populateList(items, itemsList);
