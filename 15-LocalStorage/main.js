@@ -11,8 +11,22 @@ function addItem(e) {
     done: false
   }
   items.push(item);
-  console.table(items)
+  populateList(items, itemsList)
   this.reset();
+}
+
+function populateList(plates = [], plateList) {
+  const html = plates.map((plate, i) => {
+    
+    return `
+      <li>
+        <input type="checkbox" data-index=${i} id="item${i}" ${plate.done ? "checked" : ""} />
+        <label for="">${plate.text}</label>
+      </li>
+    `;
+  }).join("");
+
+  plateList.innerHTML = html
 }
 
 addItems.addEventListener('submit', addItem);
