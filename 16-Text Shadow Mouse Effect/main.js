@@ -5,9 +5,11 @@ const walk = 50;
 function shadow(e) {
   const width = hero.offsetWidth;
   const height = hero.offsetHeight;
+  // const { offsetWidth: width, offsetHeight: height } = hero  // ES6 Destructuring Assignment
 
   let y = e.offsetY;
   let x = e.offsetX;
+  // let { offsetX: x, offsetY: y } = e   // ES6 Destructuring Assignment
 
   // The '.target' is the thing that actually triggered on, whereas 'this' is the thing that you listened on.
   // The 'target' is what it got triggered on will sometimes change.
