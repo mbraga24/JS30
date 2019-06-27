@@ -10,7 +10,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: black;
+  color: rgb(140, 98, 98);
 }
 h1 {
   text-shadow: 10px 10px 0 rgba(0,0,0,1);
