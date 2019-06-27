@@ -1,4 +1,4 @@
-const bands = ['The Red Hot chili peppers', 'Nirvana', 'Queens', 'Guns and Roses ', 'The Cure', 'Jack Johnson', 'The Beautiful Girls', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
 
 const sorted = document.querySelector("#bands")
 
@@ -6,14 +6,14 @@ function strip(bandName) {
   return bandName.replace('/^(the |a |an )/i')
 }
 
-function displayNames(bands) {
-  const html = bands.map(band => {
+function displayNames(sortedBands) {
+  const html = sortedBands.map(bands => {
     return `
       <li>
-        ${band}
+        ${bands}
       </li>
     `
-  }).join("");
+  }).join("")
   sorted.innerHTML = html;
 }
 
