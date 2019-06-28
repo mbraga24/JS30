@@ -1,15 +1,11 @@
 const hero = document.querySelector(".hero")
 const text = hero.querySelector("h1")
-const walk = 50;
+const shadowing = 100;
+let flag = false;
 
 function shadow(e) {
-  const width = hero.offsetWidth;
-  const height = hero.offsetHeight;
-  // const { offsetWidth: width, offsetHeight: height } = hero  // ES6 Destructuring Assignment
-
-  let y = e.offsetY;
-  let x = e.offsetX;
-  // let { offsetX: x, offsetY: y } = e   // ES6 Destructuring Assignment
+  const { offsetWidth: width, offsetHeight: height } = hero  // ES6 Destructuring Assignment
+  let { offsetX: x, offsetY: y } = e   // ES6 Destructuring Assignment
 
   // The '.target' is the thing that actually triggered on, whereas 'this' is the thing that you listened on.
   // The 'target' is what it got triggered on will sometimes change.
@@ -18,11 +14,17 @@ function shadow(e) {
     y = y + e.target.offsetTop
   }
 
-  const xWalk = Math.round((x / width * walk) - (walk / 3))
-  const yWalk = Math.round((y / height * walk) - (walk / 4))
+  const xShadowing = Math.round((x / width * shadowing) -  (shadowing / 2))
+  const yShadowing = Math.round((y / height * shadowing) -  (shadowing / 2))
 
-  text.style.textShadow = `${xWalk}px ${yWalk}px 0 rgba(90, 90, 113, 0.2)`
-
+  text.style.textShadow = `${xShadowing}px ${yShadowing}px 0 rgba(90, 90, 113, 0.2)`
 }
 
-hero.addEventListener("mousemove", shadow)
+hero.addEventListener("mousemove", (e) => {
+  if (flag) {
+    shadow(e)
+  }
+})
+text.addEventListener("mouseover", () => {
+  flag = true;
+})
