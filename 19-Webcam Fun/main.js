@@ -11,7 +11,7 @@ function getVideo() {
   }
   navigator.mediaDevices.getUserMedia(constraints)
     .then(localMediaStream => {
-      console.log(localMediaStream)
+      // console.log(localMediaStream)
       // According to MDN documentation:
       /*
         In older versions of the Media Source specification, attaching a stream to a <video> 
@@ -23,8 +23,27 @@ function getVideo() {
       */
       video.srcObject = localMediaStream;
       video.play()
+    })
+    .catch(error => {
+      alert("There was an error when connecting to your camera. When asked, please allow application to access your camera.");
+      console.log("There was an error when connecting to your camera. Please, allow application to access your camera.", error);
     });
-
 }
 
+function repeatOften() {
+  const width = video.videoWidth;
+  const height = video.videoHeight;
+
+  canvas.width = width;
+  canvas.height = height;
+  
+  ctx.drawImage(video, 0, 0, width, height)
+
+  requestAnimationFrame(repeatOften);
+}
+
+requestAnimationFrame(repeatOften);
+
 getVideo()
+
+// paintToCanvas()
