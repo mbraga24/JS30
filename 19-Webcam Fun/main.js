@@ -45,5 +45,3 @@ function repeatOften() {
 requestAnimationFrame(repeatOften);
 
 getVideo()
-
-// paintToCanvas()
