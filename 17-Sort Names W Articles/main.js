@@ -6,6 +6,14 @@ function strip(bandName) {
   return bandName.replace('/^(the |a |an )/i')
 }
 
+const sortedBands = bands.sort((a,b) => {
+  if (strip(a) > strip(b)) {
+    return 1;
+  } else {
+    return -1;
+  }
+})
+
 function displayNames(sortedBands) {
   const html = sortedBands.map(bands => {
     return `
@@ -16,14 +24,6 @@ function displayNames(sortedBands) {
   }).join("")
   sorted.innerHTML = html;
 }
-
-const sortedBands = bands.sort((a,b) => {
-  if (strip(a) > strip(b)) {
-    return 1;
-  } else {
-    return -1;
-  }
-})
 
 displayNames(sortedBands)
 
