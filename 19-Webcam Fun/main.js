@@ -30,7 +30,7 @@ function getVideo() {
     });
 }
 
-function repeatOften() {
+function paintToCanvas() {
   const width = video.videoWidth;
   const height = video.videoHeight;
 
@@ -39,9 +39,10 @@ function repeatOften() {
   
   ctx.drawImage(video, 0, 0, width, height)
 
-  requestAnimationFrame(repeatOften);
+  requestAnimationFrame(paintToCanvas);
 }
 
-requestAnimationFrame(repeatOften);
+requestAnimationFrame(paintToCanvas);
 
 getVideo()
+paintToCanvas()
