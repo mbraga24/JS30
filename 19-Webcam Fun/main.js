@@ -42,7 +42,15 @@ function paintToCanvas() {
   requestAnimationFrame(paintToCanvas);
 }
 
-requestAnimationFrame(paintToCanvas);
 
+
+// ON PAGE LOAD
 getVideo()
-paintToCanvas()
+
+// requestAnimationFrame() will also run on page load. 
+// requestAnimationFrame(paintToCanvas);
+
+// Adding the 'canplay' event listener to 'video' to run paintToCanvas 
+// is another alternative for running the function on page load
+video.addEventListener("canplay", paintToCanvas);
+
