@@ -90,6 +90,31 @@ function takePhoto() {
   strip.insertBefore(link, strip.firstChild);
 }
 
+function redEffect(pixels) {
+  return pixels = doEffect(pixels, 151, 50, 0.5)
+}
+
+function blueEffect(pixels) {
+  return pixels = doEffect(pixels, 49, 0.5, 210)
+}
+
+function doEffect(pixels, red, green, blue) {
+  for(let i = 0; i < pixels.data.length; i+=4) {
+    if (red > 150 && blue < 30) {
+      // RED
+      pixels.data[i + 0] = pixels.data[i + 0] + red;
+      pixels.data[i + 1] = pixels.data[i + 1] - green;
+      pixels.data[i + 2] = pixels.data[i + 2] * blue;  
+    } else if (red < 50 && blue > 200) {
+      // BLUE
+      pixels.data[i + 0] = pixels.data[i + 0] + red;
+      pixels.data[i + 1] = pixels.data[i + 1] * green;
+      pixels.data[i + 2] = pixels.data[i + 2] + blue;  
+    }
+  }
+  return pixels;
+}
+
 // ON PAGE LOAD
 getVideo()
 
