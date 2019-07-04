@@ -67,6 +67,12 @@ function checkColor(pixels) {
   runFilter(pixels)
 }
 
+function runFilter(pixels) {
+  if (press !== "") {
+    ctx.putImageData(pixels, 0, 0);
+  }
+}
+
 function takePhoto() {
   // Play the sound
   snap.currentTime = 0;
