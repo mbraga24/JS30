@@ -53,6 +53,10 @@ function takePhoto() {
   snap.play()
 
   // Take the data out of the canvas
+  const data = canvas.toDataURL('image/jpeg');
+
+  // Base64 - text based representation of a picture.
+  console.log(data)
 }
 
 // ON PAGE LOAD
