@@ -3,6 +3,7 @@ const canvas = document.querySelector('.photo');
 const ctx = canvas.getContext('2d');
 const strip = document.querySelector('.strip');
 const snap = document.querySelector('.snap');
+const take_photo = document.querySelector('.btn-photo');
 
 function getVideo() {
   const constraints = {
@@ -30,7 +31,7 @@ function getVideo() {
       video.play()
     })
     .catch(error => {
-      alert("There was an error when connecting to your camera. When asked, please allow application to access your camera.");
+      alert("There was an error when connecting to your camera. Next time we ask, please allow application to access your camera.");
       console.log("There was an error when connecting to your camera. Please, allow application to access your camera.", error);
     });
 }
@@ -59,7 +60,8 @@ function takePhoto() {
   const link = document.createElement('a');
   link.href = data;
   link.setAttribute('download', 'smartCookie');
-  link.textContent = 'Download Image';
+  // link.textContent = 'Download Image';
+  link.innerHTML = `<img src="${data}" alt="selfie" />`
   strip.insertBefore(link, strip.firstChild);
 }
 
@@ -72,4 +74,4 @@ getVideo()
 // Adding the 'canplay' event listener to 'video' to run paintToCanvas 
 // is another alternative for running the function on page load
 video.addEventListener("canplay", paintToCanvas);
-
+take_photo.addEventListener("click", takePhoto);
