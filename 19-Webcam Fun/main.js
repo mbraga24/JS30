@@ -54,9 +54,13 @@ function takePhoto() {
 
   // Take the data out of the canvas
   const data = canvas.toDataURL('image/jpeg');
-
   // Base64 - text based representation of a picture.
-  console.log(data)
+  // console.log(data)
+  const link = document.createElement('a');
+  link.href = data;
+  link.setAttribute('download', 'smartCookie');
+  link.textContent = 'Download Image';
+  strip.insertBefore(link, strip.firstChild);
 }
 
 // ON PAGE LOAD
