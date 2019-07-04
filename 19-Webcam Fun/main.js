@@ -4,6 +4,9 @@ const ctx = canvas.getContext('2d');
 const strip = document.querySelector('.strip');
 const snap = document.querySelector('.snap');
 const take_photo = document.querySelector('.btn-photo');
+const red_filter = document.querySelector('.btn-red-fil');
+const blue_filter = document.querySelector('.btn-blue-fil');
+let press = "";
 
 function getVideo() {
   const constraints = {
@@ -45,7 +48,23 @@ function paintToCanvas() {
   
   ctx.drawImage(video, 0, 0, width, height)
 
+  // Take the pixels out.
+  let pixels = ctx.getImageData(0, 0, width, height);
+  // Check color and runfilter
+  checkColor(pixels)
+
   requestAnimationFrame(paintToCanvas);
+}
+
+function checkColor(pixels) {
+  if (press === "red") {
+    // Change values.
+    pixels = redEffect(pixels);
+  } else if (press === "blue") {
+    // Change values.
+    pixels = blueEffect(pixels);
+  }
+  runFilter(pixels)
 }
 
 function takePhoto() {
