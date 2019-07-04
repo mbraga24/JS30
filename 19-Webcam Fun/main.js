@@ -69,6 +69,7 @@ function checkColor(pixels) {
 
 function runFilter(pixels) {
   if (press !== "") {
+    // Put values back.
     ctx.putImageData(pixels, 0, 0);
   }
 }
