@@ -47,7 +47,13 @@ function paintToCanvas() {
   requestAnimationFrame(paintToCanvas);
 }
 
+function takePhoto() {
+  // Play the sound
+  snap.currentTime = 0;
+  snap.play()
 
+  // Take the data out of the canvas
+}
 
 // ON PAGE LOAD
 getVideo()
