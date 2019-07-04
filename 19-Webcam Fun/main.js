@@ -125,3 +125,17 @@ getVideo()
 // is another alternative for running the function on page load
 video.addEventListener("canplay", paintToCanvas);
 take_photo.addEventListener("click", takePhoto);
+red_filter.addEventListener("mousedown", () => {
+  if (press === "") {
+    press = "red";
+  } else {
+    press = ""
+  }
+});
+blue_filter.addEventListener("mousedown", () => {
+  if (press === "") {
+    press = "blue";
+  } else {
+    press = ""
+  }
+});
