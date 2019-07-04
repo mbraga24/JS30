@@ -21,7 +21,12 @@ function getVideo() {
         solution for this issue:
         https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/srcObject
       */
-      video.srcObject = localMediaStream;
+      if ('srcObject' in video) {
+        video.srcObject = localMediaStream;
+      } else {
+        // Avoid using this in new browsers, as it is going away.
+        video.src = URL.createObjectURL(mediaSource);
+      }
       video.play()
     })
     .catch(error => {
