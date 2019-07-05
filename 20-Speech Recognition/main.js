@@ -21,6 +21,20 @@ function fetchWeather(responses, index) {
   lastChild.appendChild(p)
 }
 
+function fetchWeather2(responses, index) {
+  let p = document.createElement('p');
+  p.innerHTML = responses[index];
+  let lastChild = words.lastChild
+  lastChild.appendChild(p)
+}
+
+function chilling() {
+  let p = document.createElement('p');
+  p.innerHTML = "I'm chilling, sir!";
+  let lastChild = words.lastChild
+  lastChild.appendChild(p)
+}
+
 recognition.addEventListener('result', (e) => {
   // console.log(e.results)
   const transcript = Array.from(e.results)
