@@ -52,13 +52,19 @@ recognition.addEventListener('result', (e) => {
     let index = Math.floor(Math.random() * responses.length)
 
     greeting(responses, index)
+
   } else if (transcript.includes("Jarvis get me the weather") || transcript.includes("Jarvis give me the weather")) {
     let responses = ["At once, sir!", "Not a problem, sir.", "Not a problem. Hopefully it won't rain. I know how much that upsets you."];
     let index = Math.floor((Math.random() * responses.length))
 
     fetchWeather(responses, index)
-  } else if (transcript.includes("what's up Jarvis")) {
+  } else if (transcript.includes("Jarvis what's the weather like")) {
+    let responses = ["One moment, sir.", "Let me check...", "I'm curios myself."];
+    let index = Math.floor((Math.random() * responses.length))
 
+    fetchWeather2(responses, index)
+  } else if (transcript.includes("what's up Jarvis") || transcript.includes("what's up")) {
+    chilling()
   }
 
   console.log(transcript)
