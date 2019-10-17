@@ -5,6 +5,7 @@ canvas.height = window.innerHeight;
 context.lineJoin = 'round';
 context.lineCap = 'round';
 context.lineWidth = 25;   // Initial value.
+let button = document.querySelector("button");
 
 let isDrawing = false;    // Flag to false so value can be increased in draw() function.
 let lastX = 0;
@@ -46,6 +47,17 @@ canvas.addEventListener('mousedown', (e) => {
 canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mouseup', () => isDrawing = false);
 canvas.addEventListener('mouseout', () => isDrawing = false);
+button.addEventListener('click', () => {
+// Store the current transformation matrix
+context.save();
+
+// Use the identity matrix while clearing the canvas
+context.setTransform(1, 0, 0, 1, 0, 0);
+context.clearRect(0, 0, canvas.width, canvas.height);
+
+// Restore the transform
+context.restore();
+})
 
 /*
 MDN research:
