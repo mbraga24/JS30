@@ -11,6 +11,8 @@ body {
  flex: 1;
  min-height: 100vh;
  align-items: center;
+ background-color: #262631;
+ color: #fff;
 }
 .clock {
  width: 40rem;
@@ -20,7 +22,8 @@ body {
  margin: 50px auto;
  position: relative;
  padding: 2rem;
- box-shadow: 0 0 0 5px rgba(0,0,0,0.1), inset 0 0 0 2px white, inset 0 0 27px 0px black, 0 0 55px rgba(0, 0, 0, 1);
+ box-shadow: 0 0 0 5px #0000001a, inset 0 0 0 2px white, inset 0 0 27px 0px black, 0 0 55px #000000;
+ background-color: #292943;
 }
 .clock-face {
  position: relative;
